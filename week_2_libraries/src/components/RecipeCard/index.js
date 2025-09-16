@@ -10,16 +10,8 @@ import {RECIPE} from './recipe-data'
 
 const RecipeCard = () => {
   return (
-    <Card>
-      <RecipeImg imgSrc={RECIPE.imgSrc} />
-      <div className="card_text">
-        <RecipeInfo title={RECIPE.title} description={RECIPE.description} />
-        <div className="card_lists">
-          <IngredientsList data={RECIPE.ingredients} />
-          <InstructionsList data={RECIPE.instructions} />
-        </div>
-        <UserRating />
-      </div>
+    <Card title={RECIPE.title} description={RECIPE.description} 
+    image={RECIPE.imgSrc} ingredients={RECIPE.ingredients} instructions={RECIPE.instructions}>
     </Card>
   )
 }
