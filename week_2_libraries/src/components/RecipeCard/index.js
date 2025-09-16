@@ -1,9 +1,4 @@
 import Card from './Card'
-import RecipeInfo from './RecipeInfo'
-import IngredientsList from './IngredientsList'
-import InstructionsList from './InstructionsList'
-import RecipeImg from './RecipeImg'
-import UserRating from '../UserRating'
 import './RecipeCard.css'
 
 import {RECIPE} from './recipe-data'
