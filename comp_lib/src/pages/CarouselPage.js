@@ -11,12 +11,13 @@ import kitten_4 from '../assets/kitten_images/kitten_4.jpg'
 const CarouselPage = () => {
     const puppies = [puppy_1, puppy_2, puppy_3, puppy_4];
     const kittens = [kitten_1, kitten_2, kitten_3, kitten_4];
+
     return (
         <>
             <h1>Carousel Page</h1>
             <div>
-                <Carousel items={puppies} />
-                <Carousel items={kittens} />
+                <Carousel items={puppies}/>
+                <Carousel items={kittens}/>
             </div>
         </>
     );

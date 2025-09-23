@@ -1,10 +1,27 @@
-const Carousel = (props) => {
+import {useState} from 'react'
+
+const Carousel = ({items}) => {
+
+    const [cycle_position, setCyclePosition] = useState(0)
+
+    const handleClick = () => {
+        var first = items.shift();
+        items.push(first);
+
+        var new_pos = cycle_position + 1;
+        if (new_pos >= items.length) {
+            new_pos = 0;
+        }
+        setCyclePosition(new_pos);
+    };
+
     return (
         <>
-        <div className = "w-full flex flex-row justify-center items-center gap-20 p-20">
-            {props.items.map((item, index) => (
+        <div className = "w-full flex flex-row justify-center items-center gap-20 p-20"
+        onClick={handleClick}>
+            {items.map((item, index) => (
                 <div key={index}>
-                    <img className="w-40" src={item} alt={`Puppy`} />
+                    <img className="w-40" src={item} alt={`Carousel image`} />
                 </div>
             ))}
         </div>
