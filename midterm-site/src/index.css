@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --aic-red: #B50938; /* Global variable */
+  --aic-gray: #7E746D;
+  --aic-white: #F6F6F6;
+  --aic-black: #1A1A1A;
+}
