@@ -1,12 +1,12 @@
 import axios from 'axios'
 
-// Build an IIIF image URL for an artwork image_id
+// Take raw API data and extract image, information
 const buildImageUrl = (imageId, width = 843) => {
   if (!imageId) return null
   return `https://www.artic.edu/iiif/2/${imageId}/full/${width},/0/default.jpg`
 }
 
-// Fetch a single artwork by id and normalize the shape we use in the app
+// Fetch artwork from Art Institute of Chicago API then convert to usable format
 const fetchArtworkById = async (id) => {
   const url = `https://api.artic.edu/api/v1/artworks/${id}?fields=id,title,artist_display,image_id`
   try {
@@ -20,16 +20,16 @@ const fetchArtworkById = async (id) => {
       imageUrl: buildImageUrl(d.image_id),
     }
   } catch (err) {
-    // Many random IDs won't exist (404) — treat as a miss and continue
+    // If ID doesn't match any art, move on
     return null
   }
 }
 
-// Get a handful of random artworks that actually have images
+// Keep trying random IDs until 8 artworks secured
 const searchImages = async (count = 8) => {
   const results = []
   let attempts = 0
-  const maxAttempts = count * 12 // be generous to find enough with images
+  const maxAttempts = count * 12
 
   while (results.length < count && attempts < maxAttempts) {
     attempts += 1

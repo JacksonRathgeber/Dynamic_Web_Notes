@@ -27,17 +27,23 @@ function App() {
   }
 
   return (
+    // Main container
     <div className="flex flex-col items-center min-h-screen bg-[--aic-white] p-10 gap-4">
+      {/* Header */}
       <div className="flex flex-row justify-between items-top w-full">
         <img src={logo} alt="Art Logo" className="h-24 mr-4" />
         <h1 className="text-xl px-2 text-[--aic-gray]">Jackson Rathgeber</h1>
       </div>
 
+      {/* Button for reshuffling art */}
       <Button red onClick={reshuffle}>
         Press for Random Art!
       </Button>
+
+      {/* Art Gallery Display */}
       <ArtGallery artPieces={images} onItemClick={openPopup} />
 
+      {/* Popup for selected art piece */}
       {popupActive && selectedArt && (
         <Popup title={selectedArt.title} onClose={closePopup}>
           <div className="flex flex-row justify-between h-full w-full">

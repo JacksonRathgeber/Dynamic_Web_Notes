@@ -2,6 +2,7 @@ const ArtPiece = (props) => {
   const { title = 'Untitled', artist = 'Unknown artist', imageUrl } = props
   if (!imageUrl) return null
 
+  // Click handler to send data back up if onClick provided
   const handleClick = () => {
       const popupData = {
         title,

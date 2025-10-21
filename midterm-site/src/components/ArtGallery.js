@@ -10,6 +10,7 @@ const ArtGallery = (props) => {
         title={artPiece.title}
         artist={artPiece.artist}
         imageUrl={artPiece.imageUrl}
+        // Send click event up if handler provided
         onClick={onItemClick ? () => onItemClick(artPiece) : undefined}
       />
     ))

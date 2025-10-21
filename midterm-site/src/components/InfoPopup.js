@@ -5,6 +5,7 @@ import cx from 'classnames'
 const Popup = (props) => {
   const {title, children, onClose} = props
 
+  // Prevent scrolling when popup is active
   useEffect(() => {
     document.body.classList.add('overflow-hidden')
 

@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 :root {
+  /* hex values taken from AIC branding guidelines */
   --aic-red: #B50938; /* Global variable */
   --aic-gray: #7E746D;
   --aic-white: #F6F6F6;
