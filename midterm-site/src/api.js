@@ -26,7 +26,7 @@ const fetchArtworkById = async (id) => {
 }
 
 // Get a handful of random artworks that actually have images
-const searchImages = async (count = 5) => {
+const searchImages = async (count = 8) => {
   const results = []
   let attempts = 0
   const maxAttempts = count * 12 // be generous to find enough with images

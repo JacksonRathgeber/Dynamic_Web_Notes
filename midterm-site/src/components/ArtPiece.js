@@ -1,13 +1,19 @@
 const ArtPiece = (props) => {
   const { title = 'Untitled', artist = 'Unknown artist', imageUrl } = props
   if (!imageUrl) return null
+
+  const handleClick = () => {
+      const popupData = {
+        title,
+        artist,
+        imageUrl
+    }
+    return props.onClick ? props.onClick(popupData) : null;
+  }
+
   return (
-    <div>
-      <img src={imageUrl} alt={title} />
-      <div>
-        <h2>{title}</h2>
-        <p>{artist}</p>
-      </div>
+    <div className="overflow-hidden object-fill h-max-3/4">
+      <img src={imageUrl} alt={title} className="object-cover w-full h-full cursor-pointer" onClick={handleClick} />
     </div>
   )
 }
