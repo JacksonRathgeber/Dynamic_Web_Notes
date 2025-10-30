@@ -11,6 +11,7 @@ const Button = (props) => {
     ...otherProps
   } = props;
 
+  // first establish shared properties, then specifics for each type
   const baseClass = 'relative flex items-center px-8 py-3 m-5 text-xl border rounded-md hover:opacity-90 active:opacity-80 active:translate-y-0.5 transition-all duration-50'
   const classes = twMerge(
     cx(otherProps.className, baseClass, {
