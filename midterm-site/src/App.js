@@ -37,8 +37,10 @@ function App() {
 
       {/* Button for reshuffling art */}
       <Button red onClick={reshuffle}>
-        Press for Random Art!
+        Press for Random Art
       </Button>
+
+      <hr className="w-full h-px my-8 opacity-20 bg-[--aic-gray] border-0 dark:[--aic-gray]"></hr>
 
       {/* Art Gallery Display */}
       <ArtGallery artPieces={images} onItemClick={openPopup} />
