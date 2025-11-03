@@ -1,8 +1,6 @@
 import {useState} from 'react'
-import useTodosContext from '../hooks/use-todos-context'
 
 const TodoEdit = ({todo, onSubmit}) => {
-  const {editTodoById} = useTodosContext()
   const [title, setTitle] = useState(todo.title)
 
   const handleChange = (event) => {
@@ -11,8 +9,7 @@ const TodoEdit = ({todo, onSubmit}) => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    editTodoById(todo.id, title)
-    onSubmit()
+    onSubmit(todo.id, title)
   }
   return (
     <form onSubmit={handleSubmit}>

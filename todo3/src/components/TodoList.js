@@ -1,11 +1,11 @@
-import React from 'react'
+import useTodosContext from '../hooks/use-todos-context'
 import TodoItem from './TodoItem'
 
-const TodoList = ({todos, onDelete, onEdit}) => {
+const TodoList = () => {
+  const {todos} = useTodosContext()
+
   const renderedTodos = todos.map((todo) => {
-    return (
-      <TodoItem key={todo.id} todo={todo} onDelete={onDelete} onEdit={onEdit} />
-    )
+    return <TodoItem key={todo.id} todo={todo} />
   })
   return <div>{renderedTodos}</div>
 }

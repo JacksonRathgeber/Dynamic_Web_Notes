@@ -1,13 +1,11 @@
 import {useState} from 'react'
 import TodoEdit from './TodoEdit'
-import useTodosContext from '../hooks/use-todos-context'
 
-const TodoItem = ({todo}) => {
-  const {deleteTodoById} = useTodosContext()
+const TodoItem = ({todo, onDelete, onEdit}) => {
   const [showEdit, setShowEdit] = useState(false)
 
   const handleDelete = () => {
-    deleteTodoById(todo.id)
+    onDelete(todo.id)
   }
 
   const handleEdit = () => {
@@ -15,9 +13,7 @@ const TodoItem = ({todo}) => {
   }
 
   const handleSubmit = (id, newTitle) => {
-    // we no longer need to call  onEdit here because the
-    // edittodo component can directly access
-    // editTodoById from context
+    onEdit(todo.id, newTitle)
     setShowEdit(!showEdit)
   }
 
