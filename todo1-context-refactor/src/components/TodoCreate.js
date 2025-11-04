@@ -1,6 +1,8 @@
-import {useState} from 'react'
+import {useState, useContext} from 'react'
+import TodosContext from '../context/todos'
 
-const TodoCreate = ({onCreate}) => {
+const TodoCreate = () => {
+  const {createTodo} = useContext(TodosContext)
   const [title, setTitle] = useState('')
 
   const handleChange = (event) => {
@@ -9,7 +11,7 @@ const TodoCreate = ({onCreate}) => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    onCreate(title)
+    createTodo(title)
     setTitle('')
   }
 

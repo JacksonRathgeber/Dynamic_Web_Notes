@@ -1,11 +1,13 @@
 import {useState} from 'react'
+import useTodosContext from '../hooks/use-todos-context'
 import TodoEdit from './TodoEdit'
 
-const TodoItem = ({todo, onDelete, onEdit}) => {
+const TodoItem = ({todo}) => {
   const [showEdit, setShowEdit] = useState(false)
+  const {deleteTodoById} = useTodosContext()
 
   const handleDelete = () => {
-    onDelete(todo.id)
+    deleteTodoById(todo.id)
   }
 
   const handleEdit = () => {
@@ -13,7 +15,6 @@ const TodoItem = ({todo, onDelete, onEdit}) => {
   }
 
   const handleSubmit = (id, newTitle) => {
-    onEdit(todo.id, newTitle)
     setShowEdit(!showEdit)
   }
 
